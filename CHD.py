@@ -2,7 +2,7 @@
 """
 Created on Sat Apr 10 11:26:38 2021
 
-@author: Harsh
+@author: Iftesar
 """
 
 import warnings
@@ -16,7 +16,7 @@ import seaborn as sns
 import pickle
 #%matplotlib inline
 #load the data
-data = pd.read_csv('C:/Users/Iftesar/Desktop/FinalYearProject/framingham.csv')
+data = pd.read_csv('C:/Users/Harsh/Desktop/final project/framingham.csv')
 data.drop(['education'],axis=1,inplace=True) #Education has no correlation with heart disease
 data.head()
 
@@ -154,7 +154,7 @@ feat_selector.fit(X, y)
 most_important = data.columns[:-1][feat_selector.support_].tolist()
 most_important
 
-# select the top 6 features
+# select the top 7 features
 top_features = data.columns[:-1][feat_selector.ranking_ <=6].tolist()
 top_features
 
@@ -172,8 +172,7 @@ conf['Odds Ratio'] = params
 conf.columns = ['5%', '95%', 'Odds Ratio']
 print(np.exp(conf))
 
-#sns.pairplot(data, hue = 'TenYearCHD', markers=["o", "s"], vars = top_features, palette = sns.color_palette("bright", 10))
-
+sns.pairplot(data, hue = 'TenYearCHD', markers=["o", "s"], vars = top_features, palette = sns.color_palette("bright", 10))
 
 
 from imblearn.over_sampling import RandomOverSampler
@@ -185,7 +184,7 @@ y = data.iloc[:,-1]
 # the numbers before over sampling
 num_before = dict(Counter(y))
 
-os =  RandomOverSampler(1)
+os = RandomOverSampler(sampling_strategy=1)
 # transform the dataset
 X_os, y_os = os.fit_resample(X,y)
 
