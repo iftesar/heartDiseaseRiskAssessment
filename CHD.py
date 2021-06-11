@@ -16,7 +16,7 @@ import seaborn as sns
 import pickle
 #%matplotlib inline
 #load the data
-data = pd.read_csv('C:/Users/Harsh/Desktop/final project/framingham.csv')
+data = pd.read_csv('C:/Users/Iftesar/Desktop/FinalYearProject/framingham.csv')
 data.drop(['education'],axis=1,inplace=True) #Education has no correlation with heart disease
 data.head()
 
@@ -172,7 +172,7 @@ conf['Odds Ratio'] = params
 conf.columns = ['5%', '95%', 'Odds Ratio']
 print(np.exp(conf))
 
-sns.pairplot(data, hue = 'TenYearCHD', markers=["o", "s"], vars = top_features, palette = sns.color_palette("bright", 10))
+#sns.pairplot(data, hue = 'TenYearCHD', markers=["o", "s"], vars = top_features, palette = sns.color_palette("bright", 10))
 
 
 from imblearn.over_sampling import RandomOverSampler
