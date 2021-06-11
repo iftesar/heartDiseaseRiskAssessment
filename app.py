@@ -24,7 +24,7 @@ import pandas as pd
 
 #%matplotlib inline
 #load the data
-data = pd.read_csv('C:/Users/Harsh/Desktop/final project/framingham.csv')
+data = pd.read_csv('C:/Users/Iftesar/Desktop/FinalYearProject/framingham.csv')
 data.drop(['education'],axis=1,inplace=True) #Education has no correlation with heart disease
 
 data.dropna(axis=0, inplace=True)
