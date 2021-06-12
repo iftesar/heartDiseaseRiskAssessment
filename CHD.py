@@ -154,7 +154,7 @@ feat_selector.fit(X, y)
 most_important = data.columns[:-1][feat_selector.support_].tolist()
 most_important
 
-# select the top 7 features
+# select the top 6 features
 top_features = data.columns[:-1][feat_selector.ranking_ <=6].tolist()
 top_features
 
@@ -175,6 +175,7 @@ print(np.exp(conf))
 #sns.pairplot(data, hue = 'TenYearCHD', markers=["o", "s"], vars = top_features, palette = sns.color_palette("bright", 10))
 
 
+
 from imblearn.over_sampling import RandomOverSampler
 from collections import Counter
 
@@ -184,7 +185,7 @@ y = data.iloc[:,-1]
 # the numbers before over sampling
 num_before = dict(Counter(y))
 
-os = RandomOverSampler(sampling_strategy=1)
+os =  RandomOverSampler(1)
 # transform the dataset
 X_os, y_os = os.fit_resample(X,y)
 
